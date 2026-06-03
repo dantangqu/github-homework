@@ -1,2 +1,3 @@
-# github-homework
-程序设计实践课程-嵌入式系统设计-作业
+# 嵌入式课程作业仓库
+姓名：dantangqu
+ex01 v1：基础HelloWorld程序
