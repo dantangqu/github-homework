@@ -1,3 +1,4 @@
+//作业2（ex02）：用millis()函数控制LED以IHz的频率稳定闪烁
 #define LED_PIN 2
 unsigned long lastTime = 0;
 const unsigned long interval = 500;
