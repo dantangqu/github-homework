@@ -25,7 +25,6 @@ void loop() {
   }
 
   if(currentMs - lastTime < keepTime) return;
-
   lastTime = currentMs;
   ledLightOn = !ledLightOn;
   digitalWrite(LED_PIN, ledLightOn);
