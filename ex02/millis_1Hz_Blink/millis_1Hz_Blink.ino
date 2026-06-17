@@ -19,4 +19,5 @@ void loop() {
     Serial.print("系统运行毫秒：");
     Serial.println(now);
   }
+  // 校验1Hz周期，无阻塞可并行执行其他任务
 }
