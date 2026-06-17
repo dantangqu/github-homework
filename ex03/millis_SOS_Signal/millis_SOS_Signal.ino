@@ -1,3 +1,4 @@
+//作业3：用milis()函数控制LED产生SOS闪烁信息
 #define LED_PIN 2
 const unsigned long DOT_ON  = 200;
 const unsigned long DOT_GAP = 200;
@@ -13,22 +14,19 @@ void setup() {
   pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, LOW);
 }
-
 void loop() {
   unsigned long currentMs = millis();
   unsigned long keepTime;
-
   if(ledLightOn){
+    // 1、3阶段为短闪，2阶段为长闪
     keepTime = (workStage == 1 || workStage == 3) ? DOT_ON : DASH_ON;
   }else{
     keepTime = DOT_GAP;
   }
-
   if(currentMs - lastTime < keepTime) return;
   lastTime = currentMs;
   ledLightOn = !ledLightOn;
   digitalWrite(LED_PIN, ledLightOn);
-
   if(!ledLightOn){
     flashNum++;
     if(workStage == 1 && flashNum >= 3){
@@ -40,6 +38,7 @@ void loop() {
       flashNum = 0;
     }
     else if(workStage == 3 && flashNum >= 3){
+      // 完整一轮3短3长3短结束，长时间熄灭停顿
       workStage = 0;
       flashNum = 0;
       digitalWrite(LED_PIN, LOW);
